@@ -1,0 +1,32 @@
+{
+  "name": "my-social-network-api",
+  "version": "1.0.0",
+  "description": "AS A social media startup,  I WANT an API for my social network that uses a NoSQL database, SO THAT my website can handle large amounts of unstructured data.",
+  "main": "index.js",
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikaera/My-Social-Network-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index",
+    "seed": "node utils/seed",
+    "heroku-postbuild": "node utils/seed.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  },
+
+  "bugs": {
+    "url": "https://github.com/ikaera/My-Social-Network-API/issues"
+  },
+  "homepage": "https://github.com/ikaera/My-Social-Network-API#readme"
+}
