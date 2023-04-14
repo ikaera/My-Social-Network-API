@@ -1,26 +1,29 @@
 const { Schema, Types } = require('mongoose');
 
-const assignmentSchema = new Schema(
+const reactionSchema = new Schema(
   {
-    assignmentId: {
+    reactionId: {
       type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId(),
     },
-    assignmentName: {
+    reactionBody: {
       type: String,
       required: true,
-      maxlength: 50,
-      minlength: 4,
-      default: 'Unnamed assignment',
+      maxlength: 280,
+      // minlength: 4,
+      // default: 'Unnamed reaction',
     },
-    score: {
-      type: Number,
-      required: true,
-      default: () => Math.floor(Math.random() * (100 - 70 + 1) + 70),
-    },
+    // score: {
+    //   type: Number,
+    //   required: true,
+    //   default: () => Math.floor(Math.random() * (100 - 70 + 1) + 70),
+    // },
     createdAt: {
       type: Date,
       default: Date.now,
+      get: function (timeStamp) {
+        return dayjs(timeStamp).format('DD/MM/YYYY');
+      },
     },
   },
   {
@@ -28,7 +31,7 @@ const assignmentSchema = new Schema(
       getters: true,
     },
     id: false,
-  }
+  },
 );
 
-module.exports = assignmentSchema;
+module.exports = reactionSchema;

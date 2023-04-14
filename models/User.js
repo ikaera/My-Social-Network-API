@@ -1,29 +1,44 @@
 const { Schema, model } = require('mongoose');
 
-// Schema to create a course model
-const courseSchema = new Schema(
+// Schema to create a user model
+const userSchema = new Schema(
   {
-    courseName: {
+    username: {
       type: String,
       required: true,
+      unique: true,
+      trimmed: true,
     },
-    inPerson: {
-      type: Boolean,
-      default: true,
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      trimmed: true,
+      match: [
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        'Please fill a valid email address',
+      ],
     },
-    startDate: {
-      type: Date,
-      default: Date.now(),
-    },
-    endDate: {
-      type: Date,
-      // Sets a default value of 12 weeks from now
-      default: () => new Date(+new Date() + 84 * 24 * 60 * 60 * 1000),
-    },
-    students: [
+    // startDate: {
+    //   type: Date,
+    //   default: Date.now(),
+    // },
+    // endDate: {
+    //   type: Date,
+    //   // Sets a default value of 12 weeks from now
+    //   default: () => new Date(+new Date() + 84 * 24 * 60 * 60 * 1000),
+    // },
+    thoughts: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Student',
+        ref: 'Thought',
+      },
+    ],
+
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
       },
     ],
   },
@@ -35,6 +50,11 @@ const courseSchema = new Schema(
   },
 );
 
-const Course = model('course', courseSchema);
+// Create a virtual property `friendCount` that gets the amount of friends per post
+userSchema.virtual('friendCount').get(function () {
+  return this.friends.length;
+});
 
-module.exports = Course;
+const User = model('user', userSchema);
+
+module.exports = User;
