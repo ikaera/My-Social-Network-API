@@ -95,4 +95,6 @@ module.exports = {
       )
       .catch(err => res.status(500).json(err));
   },
+
+  // BONUS: Remove a user's associated thoughts when deleted.
 };

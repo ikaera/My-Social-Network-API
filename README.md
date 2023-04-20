@@ -10,12 +10,12 @@ AS A social media startup,
 I WANT an API for my social network that uses a NoSQL database,
 SO THAT my website can handle large amounts of unstructured data.
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+<!-- Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
 
 - What was your motivation?
 - Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
 - What problem does it solve?
-- What did you learn?
+- What did you learn? -->
 
 ## Table of Contents (Optional)
 
@@ -28,7 +28,14 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+<!-- What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running. -->
+
+- Download or clone repository to use this application on local machine.
+- `Node.js` and `MongoDB` is required to run the application
+- To install necessary dependencies, navigate to the root directory and run the following command: `npm i`
+- To start the server navigate to the root directory and run one the following commands:
+  - `npm run dev` (for nodemon to run) or
+  - `npm run start`.
 
 ### Acceptance Criteria
 
@@ -42,12 +49,13 @@ GIVEN a social network API,
   - THEN I am able to successfully create, update, and delete users and thoughts in my database;
 - WHEN I test API POST and DELETE routes in Insomnia,
   - THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list.
+- Application deletes a user's associated thoughts when the user is deleted.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+<!-- Provide instructions and examples for use. Include screenshots as needed.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax: -->
 
     ```md
     ![alt text](assets/images/screenshot.png)
@@ -55,11 +63,13 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
+I got help from TA and Tutor.
+
+<!-- List your collaborators, if any, with links to their GitHub profiles.
 
 If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 
-If you followed tutorials, include links to those here as well.
+If you followed tutorials, include links to those here as well. -->
 
 ## License
 
@@ -88,7 +98,7 @@ SOFTWARE.
 
 ---
 
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+<!-- 🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections. -->
 
 <!-- ## Badges
 
