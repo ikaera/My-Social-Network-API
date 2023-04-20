@@ -17,7 +17,7 @@ SO THAT my website can handle large amounts of unstructured data.
 - What problem does it solve?
 - What did you learn? -->
 
-## Table of Contents (Optional)
+## Table of Contents
 
 If your README is long, add a table of contents to make it easy for users to find what they need.
 
@@ -55,13 +55,20 @@ GIVEN a social network API,
 
 ## Usage
 
+- A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met:
+
+  -
+
+- The URL of the GitHub repository:
+  - https://github.com/ikaera/My-Social-Network-API
+
 <!-- Provide instructions and examples for use. Include screenshots as needed.
 
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax: -->
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+<!-- ```md
+![alt text](assets/images/screenshot.png)
+``` -->
 
 ## Features
 
