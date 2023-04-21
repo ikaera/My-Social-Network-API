@@ -72,12 +72,14 @@ module.exports = {
       { _id: req.params.userId },
       { $addToSet: { friends: req.params.friendId } },
       { new: true },
-    ).then(dbUserData => {
-      if (!dbUserData) {
-        return res.status(404).json({ message: 'No friend with this ID' });
-      }
-      res.json(dbUserData).catch(err => res.status(500).json(err));
-    });
+    )
+      .then(dbUserData => {
+        if (!dbUserData) {
+          return res.status(404).json({ message: 'No friend with this ID' });
+        }
+        res.json(dbUserData);
+      })
+      .catch(err => res.status(500).json(err));
   },
 
   // DELETE to remove a friend from a user's friend list

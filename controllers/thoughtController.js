@@ -39,8 +39,7 @@ const thoughtController = {
           if (!user) {
             return res.status(404).json({ message: 'No user with that ID' });
           } else {
-            user.thoughts.push(dbThoughtData._id);
-            res.json(dbThoughtData);
+            user.thoughts.push(dbThoughtData.id);
           }
         });
         res.json(dbThoughtData);
@@ -100,12 +99,14 @@ const thoughtController = {
       { _id: req.params.thoughtId },
       { $addToSet: { reactions: req.body } },
       { runValidators: true, new: true },
-    ).then(dbThoughtData => {
-      if (!dbThoughtData) {
-        return res.status(404).json({ message: 'No reaction with this ID' });
-      }
-      res.json(dbThoughtData).catch(err => res.status(500).json(err));
-    });
+    )
+      .then(dbThoughtData => {
+        if (!dbThoughtData) {
+          return res.status(404).json({ message: 'No reaction with this ID' });
+        }
+        res.json(dbThoughtData);
+      })
+      .catch(err => res.status(500).json(err));
   },
 
   // DELETE to pull and remove a reaction by the reaction's reactionId value
