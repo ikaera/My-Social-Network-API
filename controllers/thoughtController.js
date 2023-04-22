@@ -9,6 +9,7 @@ const thoughtController = {
         res.json(dbThoughtData);
       })
       .catch(err => {
+        console.log(err);
         res.status(500).json(err);
       });
   },
@@ -76,18 +77,18 @@ const thoughtController = {
             .json({ message: 'No thought found with that ID :(' });
         }
 
-        return User.findOneAndUpdate(
-          { thoughts: req.params.thoughtId },
-          { $pull: { thoughts: req.params.thoughtId } },
-          { new: true },
-        );
-      })
-      .then(dbUserData => {
-        if (!dbUserData) {
-          return res.status(404).json({
-            message: 'Thought was deleted but No user found with that ID :(',
-          });
-        }
+        //   return User.findOneAndUpdate(
+        //     { thoughts: req.params.thoughtId },
+        //     { $pull: { thoughts: req.params.thoughtId } },
+        //     { new: true },
+        //   );
+        // })
+        // .then(dbUserData => {
+        //   if (!dbUserData) {
+        //     return res.status(404).json({
+        //       message: 'Thought was deleted but No user found with that ID :(',
+        //     });
+        //   }
         res.json({ message: 'Thought was succesfully deleted!' });
       })
       .catch(err => res.status(500).json(err));

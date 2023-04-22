@@ -38,11 +38,12 @@ module.exports = {
 
   deleteUser(req, res) {
     User.findOneAndDelete({ _id: req.params.userId })
-      .then(dbUserData =>
-        !dbUserData
+      .then(dbUserData => {
+        return !dbUserData
           ? res.status(404).json({ message: 'No user with that ID' })
-          : Thought.deleteMany({ _id: { $in: dbUserData.thoughts } }),
-      )
+          : // BONUS: Remove a user's associated thoughts when deleted.
+            Thought.deleteMany({ _id: { $in: dbUserData.thoughts } });
+      })
       .then(() => res.json({ message: 'User and thought deleted!' }))
       .catch(err => res.status(500).json(err));
   },
@@ -87,7 +88,7 @@ module.exports = {
   removeFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
-      { $pull: { friend: { friendId: req.params.friendId } } },
+      { $pull: { friends: req.params.friendId } },
       { new: true },
     )
       .then(dbUserData =>
@@ -97,6 +98,4 @@ module.exports = {
       )
       .catch(err => res.status(500).json(err));
   },
-
-  // BONUS: Remove a user's associated thoughts when deleted.
 };
