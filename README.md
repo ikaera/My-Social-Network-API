@@ -57,7 +57,7 @@ GIVEN a social network API,
 
 - A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met:
 
-  -
+  - https://drive.google.com/file/d/1Q6LP6TM0GOdhGDwIj4migV0pmXcM67wm/view
 
 - The URL of the GitHub repository:
   - https://github.com/ikaera/My-Social-Network-API
